@@ -365,7 +365,7 @@ Error response format:
 ![Dashboard](task-manager-frontend/screenshots/dashboard.png)
 
 ### Auto-Bucket Summary
-![Auto-Bucket Summary](task-manager-frontend/screenshots/auto-bucket-summary.png)
+![Auto-Bucket Summary](task-manager-frontend/screenshots/Auto-bucket-summary.png)
 
 ### Pending Tasks
 ![Pending Tasks](task-manager-frontend/screenshots/pending-tasks.png)
