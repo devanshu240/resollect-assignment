@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getMissingTasks } from "../services/task";
-import { useNavigate } from "react-router-dom";
 
 interface Task {
   id: number;
@@ -13,7 +12,6 @@ const MissingTask = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -51,7 +49,7 @@ const MissingTask = () => {
           </ul>
         )}
         <button
-          onClick={() => navigate('/dashboard')}
+          onClick={() => window.location.href = '/dashboard'}
           className="mt-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition"
         >
           Back to Dashboard
