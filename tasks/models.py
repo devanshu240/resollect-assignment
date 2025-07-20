@@ -7,6 +7,7 @@ class Task(models.Model):
         ('upcoming', 'Upcoming'),
         ('missed', 'Missed'),
         ('completed', 'Completed'),
+        ('completed_late', 'Completed Late'),
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='tasks')
@@ -20,7 +21,11 @@ class Task(models.Model):
     @property
     def status(self):
         if self.completed:
-            return 'completed'
+            # Check if task was completed after deadline
+            if timezone.now() > self.deadline:
+                return 'completed_late'
+            else:
+                return 'completed'
         elif timezone.now() > self.deadline:
             return 'missed'
         else:

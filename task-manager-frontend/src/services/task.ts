@@ -84,3 +84,33 @@ export const getCompletedTasks = async () => {
   });
   return res.data.results || res.data;
 };
+
+// ✅ Get Completed Late Tasks
+export const getCompletedLateTasks = async () => {
+  const res = await axios.get(`${API_URL}?status=completed_late`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access")}`,
+    },
+  });
+  return res.data.results || res.data;
+};
+
+// ✅ Get Bucket Counts (Auto-Bucketing Feature)
+export const getBucketCounts = async () => {
+  const res = await axios.get(`${API_URL}bucket_counts/`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access")}`,
+    },
+  });
+  return res.data;
+};
+
+// ✅ Get Auto-Bucket Summary (Auto-Bucketing Feature)
+export const getAutoBucketSummary = async () => {
+  const res = await axios.get(`${API_URL}auto_bucket_summary/`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access")}`,
+    },
+  });
+  return res.data;
+};
